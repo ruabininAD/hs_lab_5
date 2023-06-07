@@ -132,16 +132,9 @@ main = do
   if choice == "1"  then do
     text <- readFile ("C:\\Users\\alex\\Downloads\\05_pr_task\\" ++ fileName ++ ".txt")
     print "text <- readFile"
-    
-
-
-
+   
     let sentences = cleanText $ splitText text
-    
-
-
-
-    
+  
     
     let bigrams = getBigrams sentences
     let dictionary = createDict bigrams Map.empty
@@ -152,13 +145,10 @@ main = do
     -- Запись словаря в файл
     print $ "Writing into file: " ++ show filePath ++ "..."
     writeDictionaryToFile filePath dictionary
-    
     print $ "Done."
-    -- putStrLn (show dictionary)
-    -- loop dictionary
   else do
     print $ "reading a dictionary from a file"
     -- Чтение словаря из файла
   dict <- readDictFromFile filePath
-  --putStrLn (show dict)
+  
   loop dict
